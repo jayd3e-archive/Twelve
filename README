@@ -1,0 +1,6 @@
+twelve
+----
+This module will allow a user to easily hijack the lib2to3 refactoring
+framework in order to automagically port an application from Python 2 
+to the Six library, which will allow your code base to support both 2 
+AND 3 easily.

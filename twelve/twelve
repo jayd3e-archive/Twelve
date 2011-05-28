@@ -1,0 +1,5 @@
+#!/home/jayd3e/Environments/env3.2/bin/python
+import sys
+from lib2to3.main import main
+
+sys.exit(main("twelve.fixes"))
