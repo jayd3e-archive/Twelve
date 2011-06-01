@@ -19,5 +19,5 @@ class FixBasestring(fixer_base.BaseFix):
         return False
     
     def transform(self, node, results):
-        node.value = 'string_types'
+        node.value = 'six.string_types'
         node.changed()

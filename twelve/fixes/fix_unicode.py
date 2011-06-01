@@ -19,5 +19,5 @@ class FixUnicode(fixer_base.BaseFix):
         return False
     
     def transform(self, node, results):
-        node.value = 'text_type'
+        node.value = 'six.text_type'
         node.changed()

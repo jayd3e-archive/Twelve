@@ -22,5 +22,5 @@ class FixUnicodeLiterals(fixer_base.BaseFix):
     
     def transform(self, node, results):
         node.value = node.value[1:]
-        node.value = 'u(' + node.value + ')'
+        node.value = 'six.u(' + node.value + ')'
         node.changed()
