@@ -12,7 +12,11 @@ class FixImportRfc822(fixer_base.BaseFix):
 
     _accept_type = token.NAME
     
-    PATTERN = "import_from< 'from' from_name='rfc822' 'import' import_as_names< 'parsedate_tz' ',' 'mktime_tz' ',' 'formatdate' > >"
+    PATTERN = """
+    import_from< 'from' from_name='rfc822' 'import' import_as_names< 'parsedate_tz' ',' 'mktime_tz' ',' 'formatdate' > >
+    |
+    import_name< 'import' from_name='rfc822' >
+    """
 
     
     def transform(self, node, results):
