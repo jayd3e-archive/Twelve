@@ -8,15 +8,14 @@ to the Six library's string_types.
 from lib2to3.pgen2 import token
 from lib2to3 import fixer_base
 
-class FixBasestring(fixer_base.BaseFix):
+class FixImportRfc822(fixer_base.BaseFix):
 
     _accept_type = token.NAME
     
-    def match(self, node):
-        if node.value == 'basestring':
-            return True
-        return False
+    PATTERN = "import_from< 'from' from_name='rfc822' 'import' import_as_names< 'parsedate_tz' ',' 'mktime_tz' ',' 'formatdate' > >"
+
     
     def transform(self, node, results):
-        node.value = 'six.string_types'
+        node = results['from_name']
+        node.value = 'email.utils'
         node.changed()

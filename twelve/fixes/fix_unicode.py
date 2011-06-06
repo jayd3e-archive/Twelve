@@ -5,7 +5,6 @@ to the Six library's text_type.
 
 """
 
-import re
 from lib2to3.pgen2 import token
 from lib2to3 import fixer_base
 
