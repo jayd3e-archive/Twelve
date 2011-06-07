@@ -26,6 +26,13 @@ class FixRaise(fixer_base.BaseFix):
         tb = results['tb'].clone() if 'tb' in results else None
 
         exc.prefix = ''
+        
+        #Change Error() to Error, if there are no arguments to pass in.
+        try:
+            if len(exc.children[1].children) == 2:
+                exc = String(exc.children[0])
+        except IndexError:
+            pass
             
         args = [exc]
         if val is not None:
@@ -35,7 +42,7 @@ class FixRaise(fixer_base.BaseFix):
             if tb is not None:
                 args.append(String(", "))
                 args.append(tb)
-
+        
         raise_stmt = Call(Name("six.reraise"), args)
         raise_stmt.prefix = node.prefix
         return raise_stmt
